@@ -1,0 +1,31 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "easton@geekness.eu",
+    "longName": "Night Switch",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/sun_res1.png",
+                "name": "IMAGE_SUN",
+                "type": "png"
+            },
+            {
+                "file": "images/moon_res1.png",
+                "name": "IMAGE_MOON",
+                "type": "png"
+            }
+        ]
+    },
+    "sdkVersion": "2",
+    "shortName": "Night Switch",
+    "uuid": "6b72eecf-9b4a-40a1-90c7-3c4e3b22fbbd",
+    "versionCode": 1,
+    "versionLabel": "1.3",
+    "watchapp": {
+        "watchface": true
+    }
+}
