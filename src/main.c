@@ -46,8 +46,8 @@ static void update_time() {
     
     //Set morning and night times
     static char morning_time[] = "08:00";
-    static char night_time[] = "22:00";
-    static char night_time_twelve[] = "10:00";
+    static char night_time[] = "23:00";
+    static char night_time_twelve[] = "11:00";
 
 
     // Write the current hours and minutes into the buffer
@@ -74,49 +74,44 @@ static void update_time() {
       
         //Current time and night_time are equal (watchface is active)
         if (strncmp(buffer, night_time, sizeof buffer) == 0 ) {
-            set_blackbg();
-        } else
+          set_blackbg();
+        }
             //Current time greater than night_time (watchface not active)
-            if (strncmp(buffer, night_time, sizeof buffer) > 0 ) {
-                set_blackbg();
-            } else
-                //Current time is less than morning time (watchface not active)
-                if (strncmp(buffer, morning_time, sizeof buffer) < 0 ) {
-                    set_blackbg();
-                } else
-                    //Current time and morning_time are equal (watchface is active)
-                    if (strncmp(buffer, morning_time, sizeof buffer) == 0 ) {
-                        set_whitebg();
-                    } else {
-                        //Anything else
-                        set_whitebg();
-                    }
+        if (strncmp(buffer, night_time, sizeof buffer) > 0 ) {
+          set_blackbg();
+        } 
+            //Current time is less than morning time (watchface not active)
+        if (strncmp(buffer, morning_time, sizeof buffer) < 0 ) {
+          set_blackbg();
+        } 
+            //Current time and morning_time are equal (watchface is active)
+        if (strncmp(buffer, morning_time, sizeof buffer) == 0 ) {
+          set_whitebg();
+        }
 
     //If we are 12 hour
     } else {
         //Current time and night_time are equal (watchface is active) and is PM
         if (strncmp(buffer, night_time_twelve, sizeof buffer) == 0 && strncmp(am_pm_buffer, "pm", sizeof buffer) == 0) {
-            set_blackbg();
-        } else
+          set_blackbg();
+        }
             //Current time greater than night_time (watchface not active) and is PM
-            if (strncmp(buffer, night_time_twelve, sizeof buffer) > 0 && strncmp(am_pm_buffer, "pm", sizeof buffer) == 0) {
-                set_blackbg();
-            } else
-                //Current time is less than morning time (watchface not active) and is AM
-                if (strncmp(buffer, morning_time, sizeof buffer) < 0 && strncmp(am_pm_buffer, "am", sizeof buffer) == 0) {
-                    set_blackbg();
-                } else
+        if (strncmp(buffer, night_time_twelve, sizeof buffer) > 0 && strncmp(am_pm_buffer, "pm", sizeof buffer) == 0) {
+          set_blackbg();
+        } 
+      
+        //Current time is less than morning time (watchface not active) and is AM
+        if (strncmp(buffer, morning_time, sizeof buffer) < 0 && strncmp(am_pm_buffer, "am", sizeof buffer) == 0) {
+          set_blackbg();
+        }
                     //Current time is greater than morning time (watchface not active) and is AM
-                    if (strncmp(buffer, morning_time, sizeof buffer) > 0 && strncmp(am_pm_buffer, "am", sizeof buffer) == 0) {
-                        set_whitebg();
-                    } else
+        if (strncmp(buffer, morning_time, sizeof buffer) > 0 && strncmp(am_pm_buffer, "am", sizeof buffer) == 0) {
+          set_whitebg();
+        } 
                         //Current time and morning_time are equal (watchface is active) and is AM
-                        if (strncmp(buffer, morning_time, sizeof buffer) == 0 && strncmp(am_pm_buffer, "am", sizeof buffer) == 0) {
-                            set_whitebg();
-                        } else {
-                            //Anything else
-                            set_whitebg();
-                        }
+        if (strncmp(buffer, morning_time, sizeof buffer) == 0 && strncmp(am_pm_buffer, "am", sizeof buffer) == 0) {
+          set_whitebg();
+        } 
     }
 }
 

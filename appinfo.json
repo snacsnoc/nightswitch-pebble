@@ -24,7 +24,7 @@
     "shortName": "Night Switch",
     "uuid": "6b72eecf-9b4a-40a1-90c7-3c4e3b22fbbd",
     "versionCode": 1,
-    "versionLabel": "1.3",
+    "versionLabel": "1.31",
     "watchapp": {
         "watchface": true
     }
